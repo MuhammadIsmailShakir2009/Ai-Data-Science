@@ -1,0 +1,106 @@
+#Assignment 1: Python Operators
+
+#Part 1: Arithmetic Operators
+
+a = 15
+b = 4
+print("Addition: a + b =", a + b)    #my ans 19
+
+print("Subtraction: a - b =", a - b) #my ans 11
+
+print("Multiplication: a * b =", a * b) #my ans 60
+
+print("Division: a / b =", a / b)  #my ans 3.75
+
+print("Floor Division: a // b =", a // b)  #my ans 3
+
+print("Modulus: a % b =", a % b) #my ans 3
+
+print("Exponentiation: a ** b =", a ** b)   #my ans 50625
+
+
+#Q: What do you expect for floor division and modulus?
+#Part 2: Arithmetic Assignment Operators
+x = 10
+print("Initial value of x:", x)  #my ans 10
+x += 5
+print("After x += 5:", x) #my ans 15
+x *= 2
+print("After x *= 2:", x)  #my ans 30
+x -= 4
+print("After x -= 4:", x)  #my ans 26
+x /= 2
+print("After x /= 2:", x)  #my ans 13.0
+
+
+
+#Q: What will be the final value of x?
+#Part 3: Comparison Operators
+a = 7
+b = 10
+print("a == b:", a == b) #my ans false
+print("a != b:", a != b) #my ans true
+print("a > b:", a > b)   #my ans false
+print("a < b:", a < b)   #my ans true
+print("a >= b:", a >= b) #my ans false
+print("a <= b:", a <= b)  #my ans true
+
+
+
+#Q: Which comparisons return True?
+#Part 4: Logical Operators
+x = True
+y = False
+print("x and y:", x and y)#my ans false
+print("x or y:", x or y)#my ans true
+print("not x:", not x)#my ans false
+
+
+
+#Q: Predict the result before running each line
+#Part 5: Membership Operators
+institute = "Saylani Mass IT"
+print("’s’ in institute:", "s" in institute)#my ans true
+print("'Saylani' in institute:", "Mass" in institute) #my ans true
+print("'Saylani' not in institute:", "Saylani" not in institute) #my ans false
+
+
+
+#Part 6: Identity Operators
+a = 5
+b = 5
+c = 1000
+print("a is b:", a is b)  #my ans true
+print("a is c:", a is c) #my ans false
+print("c is not b:", c is not b) #my ans true
+
+
+
+# A N S W E R
+Addition: a + b = 19
+Subtraction: a - b = 11
+Multiplication: a * b = 60
+Division: a / b = 3.75
+Floor Division: a // b = 3
+Modulus: a % b = 3
+Exponentiation: a ** b = 50625
+Initial value of x: 10
+After x += 5: 15
+After x *= 2: 30
+After x -= 4: 26
+After x /= 2: 13.0
+a == b: False
+a != b: True
+a > b: False
+a < b: True
+a >= b: False
+a <= b: True
+x and y: False
+x or y: True
+not x: False
+’s’ in institute: True
+'Saylani' in institute: True
+'Saylani' not in institute: False
+a is b: True
+a is c: False
+c is not b: True
