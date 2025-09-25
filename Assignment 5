@@ -1,0 +1,229 @@
+
+# ----------------Part 1: Encapsulation----------------
+
+# Task 1: Bank Account
+class BankAccount:
+    def __init__(self, account_number, balance=0):
+        self.__account_number = account_number
+        self.__balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+        else:
+            print("Deposit amount must be positive.")
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient balance or invalid amount.")
+
+    def get_balance(self):
+        return self.__balance
+
+
+# Task 2: Student Marks Validation
+class Student:
+    def __init__(self, name, roll_no, marks=0):
+        self.__name = name
+        self.__roll_no = roll_no
+        self.__marks = marks
+
+    def set_marks(self, marks):
+        if 0 <= marks <= 100:
+            self.__marks = marks
+        else:
+            print("Marks must be between 0 and 100.")
+
+    def get_name(self):
+        return self.__name
+
+    def get_roll_no(self):
+        return self.__roll_no
+
+    def get_marks(self):
+        return self.__marks
+
+
+# Task 3: Password Manager
+class PasswordManager:
+    def __init__(self, username, password):
+        self.username = username
+        self.__password = password
+
+    def __check_username(self, name):
+        return self.username == name
+
+    def __check_password(self, input_password):
+        return self.__password == input_password
+
+    def set_password(self, old, new):
+        if self.__check_password(old):
+            self.__password = new
+            print("Password updated successfully.")
+        else:
+            print("Old password does not match.")
+
+
+# Task 4: Employee Salary Protection
+class Employee:
+    def __init__(self, name, salary):
+        self.__name = name
+        self.__salary = salary if salary > 0 else 0
+
+    def get_name(self):
+        return self.__name
+
+    def set_salary(self, salary):
+        if salary > 0:
+            self.__salary = salary
+        else:
+            print("Salary must be positive.")
+
+    def show_details(self):
+        print(f"Employee Name: {self.__name}, Salary: {self.__salary}")
+
+
+# Task 5: Shopping Cart
+class ShoppingCart:
+    def __init__(self):
+        self.__items = []
+
+    def add_item(self, item):
+        if item not in self.__items:
+            self.__items.append(item)
+        else:
+            print(f"{item} already in cart.")
+
+    def remove_item(self, item):
+        if item in self.__items:
+            self.__items.remove(item)
+        else:
+            print(f"{item} not found in cart.")
+
+    def view_cart(self):
+        return self.__items
+
+
+
+# ----------------Part 2: Inheritance----------------
+
+
+# Task 1: Single Level – Animal
+class Animal:
+    def make_sound(self):
+        print("Some generic sound")
+
+class Dog(Animal):
+    def make_sound(self):
+        print("Bark!")
+
+
+# Task 2: Single Level – Vehicle
+class Vehicle:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+class Car(Vehicle):
+    def __init__(self, brand, model, seats):
+        super().__init__(brand, model)
+        self.seats = seats
+
+    def show_details(self):
+        print(f"Brand: {self.brand}, Model: {self.model}, Seats: {self.seats}")
+
+
+# Task 3: Multi-Level – Family Tree
+class GrandParent:
+    def family_name(self):
+        print("Family Name: Khan")
+
+class Parent(GrandParent):
+    def occupation(self):
+        print("Occupation: Engineer")
+
+class Child(Parent):
+    def hobby(self):
+        print("Hobby: Painting")
+
+
+# Task 4: Multiple Inheritance – Skills
+class Father:
+    def skills(self):
+        return "Scientist"
+
+class Mother:
+    def skills(self):
+        return "Freelancer"
+
+class ChildSkills(Father, Mother):
+    def skills(self):
+        return f"{Father.skills(self)} and {Mother.skills(self)}"
+
+
+# =======================
+# Object Creation (3 each)
+# =======================
+
+print("\n--- Part 1: Encapsulation ---")
+
+# BankAccount
+b1 = BankAccount("001", 500)
+b2 = BankAccount("002", 1000)
+b3 = BankAccount("003", 0)
+b1.deposit(200); b1.withdraw(100); print("Balance b1:", b1.get_balance())
+print("Balance b2:", b2.get_balance())
+print("Balance b3:", b3.get_balance())
+
+# Student
+s1 = Student("Ali", "101"); s1.set_marks(85)
+s2 = Student("Sara", "102"); s2.set_marks(105) # Invalid
+s3 = Student("Omar", "103"); s3.set_marks(92)
+print(s1.get_name(), s1.get_marks())
+print(s2.get_name(), s2.get_marks())
+print(s3.get_name(), s3.get_marks())
+
+# PasswordManager
+p1 = PasswordManager("user1", "pass123")
+p1.set_password("wrong", "newpass")
+p1.set_password("pass123", "newpass")
+
+# Employee
+e1 = Employee("Hamza", 20000); e1.show_details()
+e2 = Employee("Nida", -5000); e2.show_details()
+e3 = Employee("Usman", 30000); e3.show_details()
+e3.set_salary(35000); e3.show_details()
+
+# ShoppingCart
+cart1 = ShoppingCart(); cart1.add_item("Apple"); cart1.add_item("Banana"); cart1.add_item("Apple")
+cart2 = ShoppingCart(); cart2.add_item("Milk"); cart2.add_item("Bread")
+cart3 = ShoppingCart(); cart3.add_item("Shoes"); cart3.remove_item("Shirt")
+print("Cart1:", cart1.view_cart())
+print("Cart2:", cart2.view_cart())
+print("Cart3:", cart3.view_cart())
+
+
+print("\n--- Part 2: Inheritance ---")
+
+# Animal
+a1, a2, a3 = Dog(), Dog(), Dog()
+a1.make_sound(); a2.make_sound(); a3.make_sound()
+
+# Vehicle
+c1 = Car("Toyota", "Corolla", 5); c1.show_details()
+c2 = Car("Honda", "Civic", 4); c2.show_details()
+c3 = Car("Suzuki", "Mehran", 4); c3.show_details()
+
+# Family Tree
+child1, child2, child3 = Child(), Child(), Child()
+child1.family_name(); child1.occupation(); child1.hobby()
+child2.family_name(); child2.occupation(); child2.hobby()
+child3.family_name(); child3.occupation(); child3.hobby()
+
+# Multiple Inheritance
+cs1, cs2, cs3 = ChildSkills(), ChildSkills(), ChildSkills()
+print("Child1 Skills:", cs1.skills())
+print("Child2 Skills:", cs2.skills())
+print("Child3 Skills:", cs3.skills())
